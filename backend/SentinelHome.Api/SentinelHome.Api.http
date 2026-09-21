@@ -1,0 +1,23 @@
+@baseUrl = http://localhost:5081
+
+### API readiness check
+GET {{baseUrl}}/api/health
+Accept: application/json
+
+### Login with the DevelopmentSeed account (change it before a real deployment)
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "SentinelHome123!"
+}
+
+### Login failure example
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "wrong-password"
+}
